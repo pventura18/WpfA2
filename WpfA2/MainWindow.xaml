@@ -1,0 +1,40 @@
+﻿<Window x:Class="WpfA2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfA2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ComboBox x:Name ="cmbYears" HorizontalAlignment="Left" Margin="78,36,0,0" VerticalAlignment="Top" Width="98"/>
+        <ComboBox x:Name ="cmbMonths" HorizontalAlignment="Left" Margin="225,36,0,0" VerticalAlignment="Top" Width="98"/>
+        <DataGrid x:Name ="dgvDataOfAYear" Margin="496,70,31,27" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Month" Binding="{Binding Month}"/>
+                <DataGridTextColumn Header="New" Binding="{Binding TotalNews}"/>
+                <DataGridTextColumn Header="SalesNew" Binding="{Binding AmountNews}"/>
+                <DataGridTextColumn Header="Used" Binding="{Binding TotalUsed}"/>
+                <DataGridTextColumn Header="SalesUsed" Binding="{Binding AmountUsed}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name ="btnGetSalesMonthByMonth" Content="Month by Month Sales" HorizontalAlignment="Left" Margin="560,31,0,0" VerticalAlignment="Top" Height="31" Width="148" Click="btnGetSalesMonthByMonth_Click"/>
+        <Button x:Name ="btnGetSalesByYear" Content="Year Sales" HorizontalAlignment="Left" Margin="160,83,0,0" VerticalAlignment="Top" Height="31" Width="98" Click="btnGetSalesByYear_Click"/>
+        <Button x:Name ="btnGetSalesByMonth" Content="Month Sales" HorizontalAlignment="Left" Margin="40,83,0,0" VerticalAlignment="Top" Height="31" Width="98" Click="btnGetSalesByMonth_Click"/>
+        <Button x:Name ="btnGetSalesByYearAndMonth" Content="Year/Month Sales" HorizontalAlignment="Left" Margin="283,83,0,0" VerticalAlignment="Top" Height="31" Width="98" Click="btnGetSalesByYearAndMonth_Click"/>
+        <Button x:Name ="btnUpdateStatistics" Content="Update Statistics" HorizontalAlignment="Left" Margin="40,376,0,0" VerticalAlignment="Top" Height="31" Width="98" Click="btnUpdateStatistics_Click"/>
+        <TextBox x:Name ="txtboxYear" HorizontalAlignment="Left" Margin="154,150,0,0" TextWrapping="Wrap" Text="Year" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name ="txtboxMonth" HorizontalAlignment="Left" Margin="154,180,0,0" TextWrapping="Wrap" Text="Month" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name ="txtboxtotalNews" HorizontalAlignment="Left" Margin="154,210,0,0" TextWrapping="Wrap" Text="total News" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name ="txtboxtotalUsed" HorizontalAlignment="Left" Margin="154,240,0,0" TextWrapping="Wrap" Text="total Used" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name ="txtboxamountNews" HorizontalAlignment="Left" Margin="154,270,0,0" TextWrapping="Wrap" Text="amount News" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name ="txtboxamountUsed" HorizontalAlignment="Left" Margin="154,300,0,0" TextWrapping="Wrap" Text="amount Used" VerticalAlignment="Top" Width="120" />
+        <Label x:Name ="lblYear" Content="Year" HorizontalAlignment="Left" Margin="63,147,0,0" VerticalAlignment="Top"/>
+        <Label x:Name ="lblMonth" Content="Month" HorizontalAlignment="Left" Margin="63,176,0,0" VerticalAlignment="Top"/>
+        <Label x:Name ="lblTotalNews" Content="Total News" HorizontalAlignment="Left" Margin="63,206,0,0" VerticalAlignment="Top"/>
+        <Label x:Name ="lblTotalUsed" Content="Total Used" HorizontalAlignment="Left" Margin="64,236,0,0" VerticalAlignment="Top"/>
+        <Label x:Name ="lblAmountNews" Content="Amount News" HorizontalAlignment="Left" Margin="63,266,0,0" VerticalAlignment="Top"/>
+        <Label x:Name ="lblAmountUsed" Content="Amount Used" HorizontalAlignment="Left" Margin="64,296,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
