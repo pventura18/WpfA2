@@ -120,21 +120,27 @@ namespace WpfA2.DAO
 
         public bool UpdateStatistics(Statistics oneStatistics)
         {
+
             bool found;
-            try
+            string xpathQuery = "/response/row/row[month='" + oneStatistics.Month + "' and year=" + oneStatistics.Year.ToString() + "]";
+            XElement selectedNodes = xDocCarsSold.XPathSelectElement(xpathQuery);
+            if (selectedNodes == null) found = false;
+            else
             {
-                Statistics statisticsToUpdate = GetSalesByYearAndMonth(oneStatistics.Year, oneStatistics.Month);
-                statisticsToUpdate.TotalNews = oneStatistics.TotalNews;
-                statisticsToUpdate.TotalUsed = oneStatistics.TotalUsed;
-                statisticsToUpdate.AmountNews = oneStatistics.AmountNews;
-                statisticsToUpdate.AmountUsed = oneStatistics.AmountUsed;
+                selectedNodes.Element("year").Value = oneStatistics.Year.ToString();
+                selectedNodes.Element("total_sales_new").Value = oneStatistics.TotalNews.ToString();
+                selectedNodes.Element("total_sales_used").Value = oneStatistics.TotalUsed.ToString();
+                selectedNodes.Element("used").Value = oneStatistics.AmountUsed.ToString();
+                selectedNodes.Element("new").Value = oneStatistics.AmountNews.ToString();
+                selectedNodes.Element("month").Value = oneStatistics.Month.ToString();
+
                 found = true;
             }
-            catch (Exception ex)
-            {
-                found = false;
-            }
+            
+
+            xDocCarsSold.Save("updateStatisic.xml");
             return found;
+
         }
     }
 }
